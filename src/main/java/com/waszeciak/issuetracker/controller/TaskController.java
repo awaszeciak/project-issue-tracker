@@ -25,8 +25,8 @@ public class TaskController {
         return taskService.createTask(request);
     }
 
-    @GetMapping("/test")
-    public String test() {
-        return "Task controller works";
+    @GetMapping("/{id}")
+    public Task getTaskById(@PathVariable Long id) {
+        return taskService.getTaskById(id);
     }
 }
