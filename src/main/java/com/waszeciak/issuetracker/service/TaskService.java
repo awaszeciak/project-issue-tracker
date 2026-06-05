@@ -43,4 +43,15 @@ public class TaskService {
         taskRepository.deleteById(id);
     }
 
+    public Task updateTask(Long id, TaskRequest request) {
+        Task task = taskRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Task not found"));
+        task.setTitle(request.getTitle());
+        task.setDescription(request.getDescription());
+        task.setStatus(request.getStatus());
+        task.setPriority(request.getPriority());
+
+        return taskRepository.save(task);
+    }
+
 }
