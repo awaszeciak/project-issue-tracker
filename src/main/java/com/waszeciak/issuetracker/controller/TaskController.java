@@ -2,6 +2,8 @@ package com.waszeciak.issuetracker.controller;
 
 import com.waszeciak.issuetracker.dto.TaskRequest;
 import com.waszeciak.issuetracker.entity.Task;
+import com.waszeciak.issuetracker.enums.Priority;
+import com.waszeciak.issuetracker.enums.TaskStatus;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -16,8 +18,10 @@ public class TaskController {
     private final TaskService taskService;
 
     @GetMapping
-    public List<Task> getAllTask() {
-        return taskService.getAllTasks();
+    public List<Task> getTasks(
+            @RequestParam(required = false) TaskStatus status,
+            @RequestParam(required = false)Priority priority) {
+        return taskService.getFilteredTasks(status, priority);
     }
 
     @PostMapping

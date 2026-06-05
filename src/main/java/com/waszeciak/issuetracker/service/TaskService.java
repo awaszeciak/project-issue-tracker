@@ -2,6 +2,8 @@ package com.waszeciak.issuetracker.service;
 
 import com.waszeciak.issuetracker.dto.TaskRequest;
 import com.waszeciak.issuetracker.entity.Task;
+import com.waszeciak.issuetracker.enums.Priority;
+import com.waszeciak.issuetracker.enums.TaskStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import com.waszeciak.issuetracker.repository.TaskRepository;
@@ -13,10 +15,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TaskService {
     private final TaskRepository taskRepository;
-
-    public List<Task> getAllTasks() {
-        return taskRepository.findAll();
-    }
 
     public Task createTask(TaskRequest request) {
         Task task = Task.builder()
@@ -52,6 +50,18 @@ public class TaskService {
         task.setPriority(request.getPriority());
 
         return taskRepository.save(task);
+    }
+
+    public List<Task> getFilteredTasks(TaskStatus status, Priority priority) {
+        if (status != null) {
+            return taskRepository.findByStatus(status);
+        }
+
+        if (priority != null) {
+            return taskRepository.findByPriority(priority);
+        }
+
+        return  taskRepository.findAll();
     }
 
 }
