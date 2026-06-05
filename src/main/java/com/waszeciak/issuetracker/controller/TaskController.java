@@ -1,9 +1,9 @@
-package controller;
+package com.waszeciak.issuetracker.controller;
 
-import entity.Task;
+import com.waszeciak.issuetracker.entity.Task;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import service.TaskService;
+import com.waszeciak.issuetracker.service.TaskService;
 
 import java.util.List;
 
@@ -21,5 +21,10 @@ public class TaskController {
     @PostMapping
     public Task createTask(@RequestBody Task task) {
         return taskService.createTask(task);
+    }
+
+    @GetMapping("/test")
+    public String test() {
+        return "Task controller works";
     }
 }

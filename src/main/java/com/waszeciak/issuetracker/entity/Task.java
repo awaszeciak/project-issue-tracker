@@ -1,8 +1,8 @@
-package entity;
+package com.waszeciak.issuetracker.entity;
 
 
-import enums.Priority;
-import enums.TaskStatus;
+import com.waszeciak.issuetracker.enums.Priority;
+import com.waszeciak.issuetracker.enums.TaskStatus;
 import jakarta.persistence.*;
 import lombok.*;
 

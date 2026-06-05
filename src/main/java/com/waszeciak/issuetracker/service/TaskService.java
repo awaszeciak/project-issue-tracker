@@ -1,9 +1,9 @@
-package service;
+package com.waszeciak.issuetracker.service;
 
-import entity.Task;
+import com.waszeciak.issuetracker.entity.Task;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import repository.TaskRepository;
+import com.waszeciak.issuetracker.repository.TaskRepository;
 
 import java.util.List;
 

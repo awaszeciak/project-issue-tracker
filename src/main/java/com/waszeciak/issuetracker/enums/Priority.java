@@ -1,4 +1,4 @@
-package enums;
+package com.waszeciak.issuetracker.enums;
 
 public enum Priority {
     LOW,
