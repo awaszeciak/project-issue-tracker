@@ -36,4 +36,11 @@ public class TaskService {
 
     }
 
+    public void deleteTask(Long id) {
+        if (!taskRepository.existsById(id)) {
+            throw new RuntimeException("Task not found");
+        }
+        taskRepository.deleteById(id);
+    }
+
 }

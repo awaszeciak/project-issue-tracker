@@ -29,4 +29,9 @@ public class TaskController {
     public Task getTaskById(@PathVariable Long id) {
         return taskService.getTaskById(id);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteTask(@PathVariable Long id) {
+        taskService.deleteTask(id);
+    }
 }
