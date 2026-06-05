@@ -1,6 +1,8 @@
 package com.waszeciak.issuetracker.controller;
 
+import com.waszeciak.issuetracker.dto.TaskRequest;
 import com.waszeciak.issuetracker.entity.Task;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import com.waszeciak.issuetracker.service.TaskService;
@@ -19,8 +21,8 @@ public class TaskController {
     }
 
     @PostMapping
-    public Task createTask(@RequestBody Task task) {
-        return taskService.createTask(task);
+    public Task createTask(@Valid @RequestBody TaskRequest request) {
+        return taskService.createTask(request);
     }
 
     @GetMapping("/test")
