@@ -7,7 +7,7 @@ Backend REST API for managing tasks and issues in projects.
 - Java 21
 - Spring Boot
 - Spring Data JPA
-- H2 Database
+- PostgreSQL
 - Maven
 - Swagger
 
